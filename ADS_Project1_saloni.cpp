@@ -264,8 +264,33 @@ void append_line( text_t *txt, char * new_line)
 char * set_line( text_t *txt, int index, char * new_line){
     //char *old = txt->_text[index-1];
     //txt->_text[index-1] = new_line;
-	char *old = NULL;
-    return old;
+	
+	//No text to be returned, return NULL
+		if(txt->left == NULL)
+			return NULL;
+	
+		//If there is only one line or leaf node
+		if(txt->right == NULL)
+		{
+			if(txt->key == index)
+			{
+				object_t* old = (object_t*) txt->left;
+				txt->left = create_text_sequence(new_line);
+				return old;
+			}
+			else
+				return NULL;
+		}
+		
+		if(index < txt->key)
+		{
+			return set_line(txt->left,index,new_line);
+		}
+		else
+		{
+			return set_line(txt->right,index,new_line);
+		}
+
 }
 
 

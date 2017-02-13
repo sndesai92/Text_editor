@@ -8,6 +8,8 @@ left_rotation(text_t *node) : Performs Left Rotation at the Node "node"
 right_rotation(text_t *node) : Performs Right Rotation at the Node "node"
 rebalance() : Rebalnces the tree...as described in the book
 
+get_line() : Returns EOF marker when queried for line n+1
+
 Team Members and Functions written :
 
 Saloni Desai (Student Id: 200156206, Unity_Id : sndesai) :-
